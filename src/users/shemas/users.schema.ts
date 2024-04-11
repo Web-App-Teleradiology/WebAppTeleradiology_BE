@@ -28,9 +28,9 @@ export const UserSchema = new mongoose.Schema(
     isActive: {
       type: Boolean,
       required: true,
-      unique: true,
       default: true,
     },
   },
   { timestamps: true },
 );
+
