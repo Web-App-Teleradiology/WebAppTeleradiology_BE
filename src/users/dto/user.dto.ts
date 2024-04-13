@@ -7,6 +7,7 @@ import {
   IsString,
   Matches,
   MinLength,
+  IsBoolean,
 } from "class-validator";
 export class userDto {
   @IsString()
@@ -20,12 +21,16 @@ export class userDto {
   @IsEmail()
   @IsLowercase()
   readonly email: string;
+
+  constructor(email:string){
+    this.email= email;
+  }
   @IsString()
   @MinLength(8)
   //Regex to check if password have at least one digit,
   //one lowercase letter, one uppercase letter, and one special character
   @Matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).*$/, {
-    message: "Password too weak",
+    message: " Password too weak, ",
   })
   readonly password: string;
   @IsString()
@@ -33,6 +38,6 @@ export class userDto {
     message: "Invalid role value. Please select a valid role.",
   })
   readonly role: Role;
-  IsBoll;
+  @IsBoolean()
   readonly isActive: boolean;
 }

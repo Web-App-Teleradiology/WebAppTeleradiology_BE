@@ -15,7 +15,7 @@ export class loginDto {
   //Regex to check if password have at least one digit,
   //one lowercase letter, one uppercase letter, and one special character
   @Matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).*$/, {
-    message: "Password too weak",
+    message: " Password too weak, ",
   })
   readonly password: string;
 }
